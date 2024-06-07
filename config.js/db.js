@@ -13,5 +13,7 @@ db.sequelize = sequelize;
 
 // Import models and pass the sequelize instance and DataTypes
 db.User = require('../models/user/User')(sequelize, DataTypes);
+db.Ticket = require('../models/ticket/Ticket')(sequelize, DataTypes);
+
 
 module.exports = db;
