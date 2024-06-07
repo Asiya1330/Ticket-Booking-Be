@@ -45,7 +45,7 @@ class UserController extends BaseController {
       const token = jwt.sign({ id: user.id }, process.env.SECRET, {
         expiresIn: "1h",
       });
-      res.json({ token });
+      res.json({ token , ...{user}});
     } catch (error) {
       console.log(error)
       res.status(500).json({ error: error.message });
