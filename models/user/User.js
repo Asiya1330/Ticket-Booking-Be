@@ -10,6 +10,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             unique: true
         },
+        fname:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        lname:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false
@@ -20,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }
     },{
-        timestamps: true // Add timestamps (createdAt, updatedAt)
+        timestamps: true
     });
     return User;
 };

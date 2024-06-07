@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./config.js/db');
 const userRoutes = require('./routes/user/UserRoute')
+const ticketRoutes = require('./routes/ticket/TicketRoute')
+
 const cors = require('cors')
 
 const app = express();
@@ -15,6 +17,8 @@ db.sequelize.sync().then(() => {
 });
 
 app.use('/api/user', userRoutes);
+app.use('/api/ticket', ticketRoutes);
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;

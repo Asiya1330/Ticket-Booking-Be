@@ -1,9 +1,7 @@
 const BaseController = require("../BaseController");
-const UserModel = require("../../models/user/UserModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { roles } = require("../../constants/user");
-// const config = require('../../config');
 
 class UserController extends BaseController {
   constructor(ModelClass) {
@@ -12,8 +10,9 @@ class UserController extends BaseController {
 
   async signup(req, res) {
     try {
-      const { email, password, role } = req.body;
-      if(roles.includes(role)) throw new Error("Role does not exist")
+      const { email, password, role, fname, lname} = req.body;
+      if(!fname || !lname) throw new Error("First name and Last name is required")
+      if(!roles.includes(role)) throw new Error("Role does not exist")
       
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = await this.model.create({
