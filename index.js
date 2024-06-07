@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const db = require('./config.js/db');
 const userRoutes = require('./routes/user/UserRoute')
 const ticketRoutes = require('./routes/ticket/TicketRoute')
+// const ticketRoutes = require('./routes/ticket/TicketRoute')
+
 
 const cors = require('cors')
 
@@ -18,6 +20,8 @@ db.sequelize.sync().then(() => {
 
 app.use('/api/user', userRoutes);
 app.use('/api/ticket', ticketRoutes);
+// app.use('/api/match', ticketRoutes);
+
 
 
 // Start the server

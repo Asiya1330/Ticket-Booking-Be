@@ -19,6 +19,8 @@ class UserController extends BaseController {
         email,
         password: hashedPassword,
         role,
+        fname,
+        lname,
       });
       res.status(201).json({ id: user.id });
     } catch (error) {
