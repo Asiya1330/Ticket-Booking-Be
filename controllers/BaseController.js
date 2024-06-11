@@ -28,6 +28,7 @@ class BaseController {
             const id = await this.model.create(req.body);
             res.status(201).json({ id });
         } catch (error) {
+            console.log(error,'error in teammmm')
             res.status(500).json({ error: error });
         }
     }

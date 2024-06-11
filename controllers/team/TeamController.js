@@ -1,10 +1,10 @@
 const BaseController = require("../BaseController");
 
-class TicketController extends BaseController {
+class TeamController extends BaseController {
   constructor(ModelClass) {
     super(ModelClass);
   }
 
 }
 
-module.exports = TicketController;
+module.exports = TeamController;

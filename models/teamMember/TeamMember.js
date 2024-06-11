@@ -1,42 +1,38 @@
 module.exports = (sequelize, DataTypes) => {
-    const Ticket = sequelize.define('ticket', {
+    const TeamMember = sequelize.define('teamMember', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        matchId: {
+        teamId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'match',
+                model: 'teams',
                 key: 'id'
             },
             onUpdate: 'CASCADE',
             onDelete: 'CASCADE'
         },
-        seatNumber: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        price: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        purchaseDate: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        ticketHolderName: {
+        role: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        ticketHolderContact: {
+        contactNumber: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        email: {
             type: DataTypes.STRING,
             allowNull: true
         },
     },{
         timestamps: true
     });
-    return Ticket;
+    return TeamMember;
 };

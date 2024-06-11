@@ -1,10 +1,10 @@
 const BaseModel = require("../BaseModel");
 const db = require("../../config.js/db");
 
-class MatchModel extends BaseModel {
-  constructor(model = db.Match) {
+class TeamModel extends BaseModel {
+  constructor(model = db.Team) {
     super(model);
   }
 }
 
-module.exports = MatchModel;
+module.exports = TeamModel;
