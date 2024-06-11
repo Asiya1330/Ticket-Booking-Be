@@ -1,13 +1,16 @@
 require('dotenv').config()
+const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./config.js/db');
-const userRoutes = require('./routes/user/UserRoute')
-const ticketRoutes = require('./routes/ticket/TicketRoute')
+const UserRoutes = require('./routes/user/UserRoute')
+const TicketRoutes = require('./routes/ticket/TicketRoute')
+const MatchRoute = require('./routes/match/MatchRoute');
+const TeamRoute = require('./routes/team/TeamRoute');
+const TeamMemberRoute = require('./routes/teamMember/TeamMemberRoute');
 // const ticketRoutes = require('./routes/ticket/TicketRoute')
 
 
-const cors = require('cors')
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,9 +21,11 @@ db.sequelize.sync().then(() => {
   console.log('Database synced');
 });
 
-app.use('/api/user', userRoutes);
-app.use('/api/ticket', ticketRoutes);
-// app.use('/api/match', ticketRoutes);
+app.use('/api/user', UserRoutes);
+app.use('/api/ticket', TicketRoutes);
+app.use('/api/match', MatchRoute);
+app.use('/api/team', TeamRoute);
+app.use('/api/team-member', TeamMemberRoute);
 
 
 
