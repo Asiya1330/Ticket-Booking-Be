@@ -17,3 +17,4 @@ class BaseRoute {
 }
 
 module.exports = BaseRoute;
+

@@ -5,28 +5,35 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
-            type: DataTypes.STRING,
+        matchId: {
+            type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true
+            references: {
+                model: 'match',
+                key: 'id'
+            },
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE'
+        },
+        seatNumber: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        stadium: {
+        purchaseDate: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+        ticketHolderName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        currency: {
+        ticketHolderContact: {
             type: DataTypes.STRING,
-            defaultValue: '$',
-            allowNull: false
-        },
-        instock: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: true,
-            allowNull: false
+            allowNull: true
         },
     },{
         timestamps: true
